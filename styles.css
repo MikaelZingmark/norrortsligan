@@ -196,6 +196,16 @@ section p {
     box-shadow: var(--shadow-sm);
 }
 
+.points ul {
+    /* indrag från vänster */
+    padding-left: 20px;
+}
+
+.points ul li::marker {
+    color: var(--color-primary);
+    /* punktens färg */
+}
+
 /* Results table */
 .latest-results {
     background-color: var(--color-surface);
