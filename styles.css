@@ -173,6 +173,63 @@ ul {
     color: var(--gold);
 }
 
+/* Hamburgerknapp – bara synlig i mobilbrytpunkten. */
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-right: -10px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--cream);
+    cursor: pointer;
+}
+
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.nav-toggle-bars {
+    position: relative;
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle-bars::before {
+    top: -7px;
+}
+
+.nav-toggle-bars::after {
+    top: 7px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars {
+    background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::before {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::after {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ── Hero ───────────────────────────────────────────────────────────── */
 .hero {
     position: relative;
@@ -889,16 +946,148 @@ ul {
 /* ── Responsivt ─────────────────────────────────────────────────────── */
 @media (max-width: 700px) {
 
-    /* Hero: ingen plats för text bredvid foto – lodrätt scrim istället. */
-    .hero-scrim-x {
+    :root {
+        --gutter: 20px;
+        --header-h: 63px;
+    }
+
+    /* Header: kompakt rad med hamburgermeny. */
+    .header-inner {
+        padding: 10px var(--gutter);
+        gap: 12px;
+        flex-wrap: nowrap;
+    }
+
+    .brand {
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-name {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        flex: none;
+    }
+
+    /* Menyn fälls ut under headern i stället för att radbrytas. */
+    .site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        padding: 0 var(--gutter) 10px;
+        background: var(--green);
+        border-bottom: 1px solid var(--hair-dark);
+        box-shadow: 0 14px 24px rgba(14, 47, 31, 0.25);
+    }
+
+    .site-nav.is-open {
+        display: flex;
+    }
+
+    .site-nav a {
+        padding: 14px 0;
+        font-size: 16px;
+        border-top: 1px solid var(--hair-dark);
+    }
+
+    /* Hero: fotot får en egen bild­yta överst, texten på fast grön botten. */
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-photo {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+    }
+
+    .hero-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
         background: linear-gradient(180deg,
-                rgba(14, 47, 31, 0.55) 0%,
-                rgba(14, 47, 31, 0.75) 60%,
-                rgba(14, 47, 31, 0.92) 100%);
+                rgba(14, 47, 31, 0) 45%,
+                rgba(14, 47, 31, 0.55) 78%,
+                var(--green) 100%);
+    }
+
+    .hero-scrim-x,
+    .hero-scrim-y {
+        display: none;
     }
 
     .hero-inner {
-        padding: 64px var(--gutter) 40px;
+        padding: 22px var(--gutter) 36px;
+    }
+
+    .hero-eyebrow {
+        margin-bottom: 14px;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 12vw, 56px);
+    }
+
+    .hero-body {
+        margin-top: 18px;
+    }
+
+    /* Nyckeltalen i ett jämnt 2x2-rutnät med hårfina avdelare. */
+    .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat {
+        padding: 18px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--hair-dark-soft);
+        min-width: 0;
+    }
+
+    .stat + .stat {
+        padding-left: 0;
+    }
+
+    .stat:nth-child(odd) {
+        padding-right: 16px;
+        border-right: 1px solid var(--hair-dark-soft);
+    }
+
+    .stat:nth-child(even) {
+        padding-left: 16px;
+    }
+
+    .stat:nth-last-child(-n + 2) {
+        border-bottom: 0;
+    }
+
+    /* Fast höjd på värdet så etiketterna hamnar i linje mellan cellerna. */
+    .stat-value {
+        display: flex;
+        align-items: flex-end;
+        min-height: 32px;
+        font-size: 32px;
+        overflow-wrap: anywhere;
+    }
+
+    .stat-value.is-name {
+        font-size: 22px;
     }
 
     /* Spel/Snitt tas bort – Pos, klubb och poäng räcker på liten skärm. */
@@ -957,11 +1146,6 @@ ul {
         grid-row: 2;
         text-align: left;
         margin-top: 6px;
-    }
-
-    .format,
-    .section {
-        --gutter: 20px;
     }
 
     .panel-grid,

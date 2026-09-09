@@ -389,6 +389,46 @@
     });
   }
 
+  /* -- Mobilmeny ------------------------------------------------------- */
+  function wireNav() {
+    var btn = document.getElementById("nav-toggle");
+    var nav = document.getElementById("site-nav");
+    if (!btn || !nav) return;
+
+    function setOpen(open) {
+      nav.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "Dölj meny" : "Visa meny");
+    }
+
+    btn.addEventListener("click", function () {
+      setOpen(btn.getAttribute("aria-expanded") !== "true");
+    });
+
+    /* Stäng när man valt en sektion, med Escape, eller om man klickar utanför. */
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") setOpen(false);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!nav.classList.contains("is-open")) return;
+      if (nav.contains(e.target) || btn.contains(e.target)) return;
+      setOpen(false);
+    });
+
+    /* Vid byte till desktoplayout ska menyn aldrig ligga kvar utfälld. */
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 700 && nav.classList.contains("is-open")) setOpen(false);
+    });
+  }
+
   function init() {
     renderHero();
     renderStandings();
@@ -397,6 +437,7 @@
     renderClubs();
     wireAccordion(document.getElementById("rounds"));
     wireAccordion(document.getElementById("history-years"));
+    wireNav();
   }
 
   if (document.readyState === "loading") {
