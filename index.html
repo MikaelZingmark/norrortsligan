@@ -4,135 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norrortsligan - Golfturnering</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Norrortsligan – juniorgolf i norrort</title>
+    <meta name="description"
+        content="Norrortsligan är lagtävlingen i golf för juniorer i Stockholms norra förorter – fem deltävlingar, en värdklubb i taget, och en finalomgång där vinnaren koras.">
     <link rel="icon" type="image/png" href="logo-transparent.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo-link">
-                <img src="logo-transparent.png" alt="Norrortsligan" class="logo">
-                <span class="site-title">Norrortsligan</span>
+    <a class="skip-link" href="#stallning">Hoppa till innehållet</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#topp" class="brand">
+                <img src="logo-transparent.png" alt="Norrortsligan" class="brand-logo">
+                <span class="brand-name">Norrortsligan</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Hem</a></li>
-                <li><a href="resultat.html">Resultat</a></li>
-            </ul>
-        </nav>
+            <nav class="site-nav" aria-label="Sidnavigering">
+                <a href="#stallning">Ställning</a>
+                <a href="#deltavlingar">Deltävlingar</a>
+                <a href="#historik">Historik</a>
+                <a href="#upplagg">Upplägg</a>
+                <a href="#klubbar">Klubbar</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Välkommen till Norrortsligan</h1>
-                <p class="tagline">Golfturneringen för Stockholms norra klubbar</p>
+        <!-- Hero -->
+        <section id="topp" class="hero">
+            <div class="hero-photo">
+                <img src="hero.jpg" alt="" aria-hidden="true">
             </div>
-        </section>
+            <div class="hero-scrim-x" aria-hidden="true"></div>
+            <div class="hero-scrim-y" aria-hidden="true"></div>
 
-        <section class="intro">
-            <div class="container">
-                <h2>Om turneringen</h2>
-                <p>
-                    Norrortsligan är en lagturnering för juniorer i golf som samlar fem av de främsta klubbarna
-                    i Stockholms norra förorter. Varje klubb ställer upp med ett lag och tävlar om
-                    den åtråvärda titeln som bäst i norrort.
-                </p>
-                <p>
-                    Turneringen spelas över flera omgångar under säsongen där varje klubb är värd
-                    för en deltävling. Poäng samlas inför finalomgången där vinnaren koras.
-                </p>
-                <div class="points">
-                    <h2>Tävlingsupplägg</h2>
-                    <p>
-                        Varje lag deltar med max 10 spelare, där två platser är reseverade för tjejer. Varje deltagare
-                        får
-                        en poäng i lagtävlingen.
-                        I de fall ett lag inte har två tjejer med i laget kan platserna ersättas med killar, men inga
-                        deltarpoäng ges till dessa killar.
-                        Vid fler än åtta killar i ett lag räknas de åtta bästa scorerna. Utöver poäng för varje
-                        deltagare utges
-                        poäng
-                        för placering i tre olika klasser. Klasserna fördelas jämnt i antal deltagare utifrån HCP.
-                        Alla klasser
-                        spelar slaggolf med HCP.
-                    <ul>
-                        <li>Första plats ger 4 poäng</li>
-                        <li>Andra plats ger 3 poäng</li>
-                        <li>Tredje plats ger 2 poäng</li>
-                        <li>Fjärde plats ger 1 poäng</li>
-                    </ul>
-                    </p>
-                </div>
-
-                <div class="clubs">
-                    <h2>Deltagande klubbar</h2>
-                    <ul class="club-list">
-                        <li>Österåkers GK</li>
-                        <li>Arninge GK</li>
-                        <li>Waxholm GK</li>
-                        <li>Täby GK</li>
-                        <li>Åkersberga GK</li>
-                    </ul>
-                    <p></p>
-                    <p>
-                        Frågor om turneringen? Kontakta din klubbs tävlingsansvarig.
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <p class="hero-eyebrow">Säsong <span data-season>2026</span> · Juniorgolf</p>
+                    <h1>Norrortsligan</h1>
+                    <p class="hero-body">
+                        Norrortsligan är lagtävlingen i golf för juniorer i Stockholms norra förorter –
+                        fem deltävlingar, en värdklubb i taget, och en finalomgång där vinnaren koras.
                     </p>
                 </div>
             </div>
+
+            <div class="hero-stats-wrap">
+                <div class="hero-stats" id="hero-stats"></div>
+            </div>
         </section>
 
-        <section class="latest-results">
-            <div class="container">
+        <!-- Totalställning -->
+        <section id="stallning" class="section">
+            <div class="section-head section-head-split">
                 <h2>Totalställning</h2>
-                <table class="results-table">
-                    <thead>
-                        <tr>
-                            <th>Placering</th>
-                            <th>Lag</th>
-                            <th>Poäng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Waxholm GK</td>
-                            <td>77</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Österåkers GK</td>
-                            <td>74</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Arninge GK</td>
-                            <td>67</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Åkersberga GK</td>
-                            <td>65</td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>Täby GK</td>
-                            <td>63</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="see-all"><a href="resultat.html">Se alla resultat →</a></p>
+                <p class="section-meta" id="standings-meta"></p>
             </div>
+
+            <table class="standings">
+                <caption class="visually-hidden">Totalställning i Norrortsligan</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" class="cell-pos">Pos</th>
+                        <th scope="col">Klubb</th>
+                        <th scope="col" class="cell-num col-played">Spel</th>
+                        <th scope="col" class="cell-num col-avg">Snitt</th>
+                        <th scope="col" class="cell-num">Poäng</th>
+                    </tr>
+                </thead>
+                <tbody id="standings-body"></tbody>
+            </table>
+        </section>
+
+        <!-- Deltävlingar -->
+        <section id="deltavlingar" class="section">
+            <div class="section-head">
+                <h2>Deltävlingar</h2>
+                <p class="section-sub">Klicka på en omgång för att se resultatet.</p>
+            </div>
+            <div class="accordion" id="rounds"></div>
+        </section>
+
+        <!-- Historik -->
+        <section id="historik" class="section">
+            <div class="section-head">
+                <h2>Historik</h2>
+                <p class="section-sub">Klicka på ett år för att se slutställningen.</p>
+            </div>
+            <div class="history-cards" id="history-cards"></div>
+            <div class="accordion accordion-top" id="history-years"></div>
+        </section>
+
+        <!-- Tävlingsupplägg -->
+        <section id="upplagg" class="format">
+            <div class="format-inner">
+                <h2>Tävlingsupplägg</h2>
+                <div class="format-grid">
+                    <div class="format-text">
+                        <p>Varje lag deltar med max 10 spelare, där två platser är reserverade för tjejer.
+                            Varje deltagare ger en poäng i lagtävlingen.</p>
+                        <p>Har ett lag inte två tjejer med kan platserna ersättas med killar, men inga
+                            deltagarpoäng ges för dessa. Vid fler än åtta killar i ett lag räknas de åtta
+                            bästa scorerna.</p>
+                        <p>Utöver deltagarpoäng utgår placeringspoäng i var och en av de tre HCP-klasserna.
+                            Klasserna fördelas jämnt i antal deltagare utifrån HCP, och alla klasser spelar
+                            slaggolf med HCP.</p>
+                    </div>
+                    <div class="format-scoring">
+                        <p class="eyebrow eyebrow-gold">Placeringspoäng per klass</p>
+                        <ul class="scoring-list">
+                            <li><span class="scoring-place">Första plats</span><span class="scoring-points">4</span>
+                            </li>
+                            <li><span class="scoring-place">Andra plats</span><span class="scoring-points">3</span></li>
+                            <li><span class="scoring-place">Tredje plats</span><span class="scoring-points">2</span>
+                            </li>
+                            <li><span class="scoring-place">Fjärde plats</span><span class="scoring-points">1</span>
+                            </li>
+                        </ul>
+                        <p class="scoring-note">Poängen från alla fem deltävlingar summeras. Vid lika
+                            totalpoäng avgör bästa placering i finalomgången.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deltagande klubbar -->
+        <section id="klubbar" class="section">
+            <div class="section-head">
+                <h2>Deltagande klubbar</h2>
+            </div>
+            <div class="club-grid" id="clubs"></div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Norrortsligan</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <p class="footer-lead">Frågor om turneringen?</p>
+                <p class="footer-sub">Kontakta din klubbs tävlingsansvarige.</p>
+            </div>
+            <p class="footer-meta">Norrortsligan · Säsong <span data-season>2026</span></p>
         </div>
     </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

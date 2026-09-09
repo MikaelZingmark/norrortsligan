@@ -1,22 +1,38 @@
+/* Norrortsligan – designtokens och layout.
+   Färger, typografi och mått följer designunderlaget. */
+
 :root {
-    --color-primary: #1b5e3f;
-    --color-primary-dark: #123e29;
-    --color-accent: #c9a227;
-    --color-bg: #f7f5ef;
-    --color-surface: #ffffff;
-    --color-text: #222;
-    --color-muted: #666;
-    --color-border: #e3e0d5;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --radius: 6px;
-    --max-width: 1080px;
+    --green: #0e2f1f;
+    --green-bar: #2c6b47;
+    --cream: #f4f1e8;
+    --ink: #12211a;
+    --muted: #5b6b62;
+    --gold: #c9a856;
+    --gold-dark: #8a6a24;
+    --gold-hover: #a8863c;
+
+    --hair: rgba(18, 33, 26, 0.1);
+    --hair-soft: rgba(18, 33, 26, 0.12);
+    --hair-strong: rgba(18, 33, 26, 0.16);
+    --hair-dark: rgba(244, 241, 232, 0.14);
+    --hair-dark-strong: rgba(244, 241, 232, 0.16);
+    --hair-dark-soft: rgba(244, 241, 232, 0.12);
+    --row-hover: rgba(18, 33, 26, 0.035);
+    --track: rgba(18, 33, 26, 0.08);
+
+    --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --sans: "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --maxw: 1180px;
+    --gutter: 28px;
+    --header-h: 74px;
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
@@ -24,321 +40,938 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-/* Header / Navbar */
-header {
-    background-color: var(--color-surface);
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.navbar {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0.75rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+a {
+    color: var(--green);
     text-decoration: none;
-    color: var(--color-primary);
 }
 
-.logo {
-    height: 48px;
-    width: auto;
-    display: block;
+a:hover {
+    color: var(--gold-hover);
 }
 
-.site-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--color-text);
-    font-weight: 500;
-    padding: 0.5rem 0.25rem;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--color-primary);
-    border-bottom-color: var(--color-accent);
-}
-
-/* Main */
-main {
-    flex: 1;
-}
-
-/* Hero */
-.hero {
-    position: relative;
-    background-image:
-        linear-gradient(135deg, rgba(18, 62, 41, 0.75) 0%, rgba(27, 94, 63, 0.55) 100%),
-        url("hero.jpg");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 7rem 1.5rem;
-    text-align: center;
-}
-
-.hero-content {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-}
-
-.hero h1 {
-    font-size: 2.75rem;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-}
-
-.tagline {
-    font-size: 1.25rem;
-    color: var(--color-accent);
-}
-
-/* Page header (for subpages) */
-.page-header {
-    background-color: var(--color-primary);
-    color: #fff;
-    padding: 3rem 0;
-}
-
-.page-header h1 {
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
-}
-
-.page-header p {
-    opacity: 0.9;
-}
-
-/* Sections */
-section {
-    padding: 3rem 0;
-}
-
-section h2 {
-    color: var(--color-primary);
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-accent);
-    display: inline-block;
-}
-
-section h3 {
-    color: var(--color-primary-dark);
-    font-size: 1.25rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-section p {
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-/* Clubs */
-.club-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1rem;
-}
-
-.club-list li {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-accent);
-    padding: 0.75rem 1.25rem;
-    border-radius: var(--radius);
-    font-weight: 500;
-    box-shadow: var(--shadow-sm);
-}
-
-.points ul {
-    /* indrag från vänster */
-    padding-left: 20px;
-}
-
-.points ul li::marker {
-    color: var(--color-primary);
-    /* punktens färg */
-}
-
-/* Results table */
-.latest-results {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.results-date {
-    color: var(--color-muted);
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.results-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--color-surface);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 1rem;
-}
-
-.results-table thead {
-    background-color: var(--color-primary);
+::selection {
+    background: var(--gold);
     color: #fff;
 }
 
-.results-table th,
-.results-table td {
-    padding: 0.85rem 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.results-table th {
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-.results-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.results-table tbody tr:nth-child(even) {
-    background-color: #fafaf5;
-}
-
-.results-table tbody tr:hover {
-    background-color: #f0efe5;
-}
-
-.see-all {
-    margin-top: 1rem;
-}
-
-.see-all a {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.see-all a:hover {
-    text-decoration: underline;
-}
-
-/* Rounds */
-.round {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.round h3 {
-    margin-top: 0;
-}
-
-.round-meta {
-    color: var(--color-muted);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-/* Footer */
-footer {
-    background-color: var(--color-primary-dark);
-    color: #fff;
-    padding: 1.5rem 0;
-    margin-top: 3rem;
-    text-align: center;
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.8);
+h1,
+h2,
+h3 {
+    font-family: var(--serif);
+    font-weight: 400;
     margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-    .navbar {
-        padding: 0.75rem 1rem;
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    color: var(--green);
+    padding: 10px 16px;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    left: 12px;
+    top: 12px;
+}
+
+:focus-visible {
+    outline: 2px solid var(--gold-hover);
+    outline-offset: 3px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--green);
+    color: var(--cream);
+    border-bottom: 1px solid var(--hair-dark);
+}
+
+.header-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--cream);
+}
+
+.brand:hover {
+    color: var(--cream);
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
+    flex: none;
+}
+
+.brand-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.site-nav {
+    display: flex;
+    gap: 26px;
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    color: var(--cream);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.site-nav a:hover {
+    color: var(--gold);
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    background: var(--green);
+    color: var(--cream);
+    overflow: hidden;
+}
+
+.hero-photo {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-scrim-x,
+.hero-scrim-y {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hero-scrim-x {
+    background: linear-gradient(90deg,
+            rgba(14, 47, 31, 0.96) 0%,
+            rgba(14, 47, 31, 0.9) 34%,
+            rgba(14, 47, 31, 0.62) 58%,
+            rgba(14, 47, 31, 0.28) 80%,
+            rgba(14, 47, 31, 0.18) 100%);
+}
+
+.hero-scrim-y {
+    background: linear-gradient(180deg,
+            rgba(14, 47, 31, 0.35) 0%,
+            rgba(14, 47, 31, 0.1) 40%,
+            rgba(14, 47, 31, 0.8) 90%,
+            var(--green) 100%);
+}
+
+.hero-inner {
+    position: relative;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 96px var(--gutter) 56px;
+}
+
+.hero-text {
+    max-width: min(100%, 660px);
+}
+
+.hero-eyebrow {
+    margin: 0 0 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.hero h1 {
+    font-size: clamp(46px, 7.4vw, 104px);
+    line-height: 0.94;
+    letter-spacing: -0.02em;
+    max-width: 16ch;
+    text-wrap: balance;
+}
+
+.hero-body {
+    margin: 26px 0 0;
+    font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.5;
+    max-width: 52ch;
+    color: rgba(244, 241, 232, 0.88);
+}
+
+.hero-stats-wrap {
+    position: relative;
+    border-top: 1px solid var(--hair-dark-strong);
+}
+
+.hero-stats {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.stat {
+    padding: 22px 0;
+    border-right: 1px solid var(--hair-dark-soft);
+}
+
+.stat + .stat {
+    padding-left: 22px;
+}
+
+.stat:last-child {
+    border-right: 0;
+}
+
+.stat-value {
+    font-family: var(--serif);
+    font-size: 38px;
+    line-height: 1;
+    color: var(--cream);
+}
+
+.stat-value.is-gold {
+    color: var(--gold);
+}
+
+.stat-value.is-name {
+    font-size: clamp(24px, 2.6vw, 34px);
+}
+
+.stat-label {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 232, 0.6);
+}
+
+/* ── Sektioner ──────────────────────────────────────────────────────── */
+.section {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 84px var(--gutter) 0;
+    scroll-margin-top: var(--header-h);
+}
+
+.section-head {
+    border-bottom: 1px solid var(--hair-strong);
+    padding-bottom: 14px;
+}
+
+.section-head-split {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.section h2,
+.format h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--green);
+}
+
+.section-meta {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.section-sub {
+    margin: 10px 0 0;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+.eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.eyebrow-gold {
+    color: var(--gold);
+}
+
+.eyebrow-dark {
+    color: var(--gold-dark);
+}
+
+/* ── Totalställning ─────────────────────────────────────────────────── */
+.standings {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.standings th {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 14px 6px 14px 0;
+    border-bottom: 1px solid var(--hair-soft);
+}
+
+.standings td {
+    padding: 18px 6px 18px 0;
+    border-bottom: 1px solid var(--hair);
+    vertical-align: middle;
+}
+
+.standings .cell-pos {
+    width: 44px;
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--green);
+}
+
+.standings th.cell-num,
+.standings td.cell-num {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--muted);
+    width: 72px;
+}
+
+.standings th.cell-num:last-child,
+.standings .cell-points {
+    text-align: right;
+    width: 86px;
+}
+
+.standings .cell-points {
+    font-family: var(--serif);
+    font-size: 30px;
+    line-height: 1;
+    color: var(--green);
+}
+
+.club-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.club-name {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--green);
+}
+
+.bar {
+    margin-top: 8px;
+    height: 4px;
+    background: var(--track);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--green-bar);
+}
+
+/* ── Pillar ─────────────────────────────────────────────────────────── */
+.pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.pill.is-played {
+    background: transparent;
+    border-color: rgba(18, 33, 26, 0.25);
+    color: var(--muted);
+}
+
+.pill.is-final {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--green);
+}
+
+.pill.is-upcoming {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--cream);
+}
+
+/* ── Dragspel (deltävlingar + historik) ─────────────────────────────── */
+.accordion-top {
+    border-top: 1px solid var(--hair-soft);
+}
+
+.acc-item {
+    border-bottom: 1px solid var(--hair);
+}
+
+.acc-heading {
+    margin: 0;
+    font: inherit;
+}
+
+.acc-head {
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 22px 4px;
+    background: none;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.acc-head:hover {
+    background: var(--row-hover);
+}
+
+/* År utan bevarad slutställning – ingen utfällning, alltså ingen hovring. */
+.acc-head.is-static {
+    cursor: default;
+}
+
+.acc-head.is-static:hover {
+    background: none;
+}
+
+.round-head {
+    grid-template-columns: minmax(0, 64px) minmax(0, 150px) minmax(0, 1fr) minmax(0, auto) 28px;
+}
+
+.year-head {
+    grid-template-columns: minmax(0, 110px) minmax(0, 1fr) minmax(0, auto) 28px;
+}
+
+.round-no,
+.year-no {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1;
+    color: rgba(18, 33, 26, 0.28);
+}
+
+.year-no {
+    color: rgba(18, 33, 26, 0.32);
+}
+
+.round-date {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+.round-club,
+.year-winner {
+    min-width: 0;
+}
+
+.round-club-name,
+.year-winner-name {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--green);
+}
+
+.round-detail,
+.year-detail {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.round-status {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.year-margin {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.caret {
+    font-family: var(--mono);
+    font-size: 15px;
+    color: var(--gold-hover);
+    text-align: right;
+}
+
+.panel-grid {
+    padding: 6px 4px 34px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.panel-narrow {
+    padding: 6px 4px 34px;
+    max-width: 620px;
+}
+
+.col-label {
+    margin: 0 0 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.rank-row {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    padding: 11px 0;
+    border-top: 1px solid var(--hair);
+}
+
+.rank-pos {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold-dark);
+}
+
+.rank-club {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.rank-points {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--green);
+}
+
+.note-row {
+    padding: 11px 0;
+    border-top: 1px solid var(--hair);
+}
+
+.note-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: baseline;
+}
+
+.note-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.note-value {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.note-sub {
+    margin-top: 3px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* ── Historik ───────────────────────────────────────────────────────── */
+.history-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+    align-items: stretch;
+    margin: 34px 0 26px;
+}
+
+.champion-card {
+    background: var(--green);
+    color: var(--cream);
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.champion-club {
+    font-family: var(--serif);
+    font-size: clamp(34px, 3.6vw, 46px);
+    line-height: 1.05;
+}
+
+.champion-line {
+    font-size: 16px;
+    color: rgba(244, 241, 232, 0.78);
+}
+
+.champion-note {
+    margin-top: auto;
+    padding-top: 18px;
+    font-size: 14px;
+    color: rgba(244, 241, 232, 0.6);
+    border-top: 1px solid var(--hair-dark-strong);
+}
+
+.titles-card {
+    border: 1px solid var(--hair-strong);
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.titles-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hair);
+}
+
+.titles-club {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.titles-count {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.empty-note {
+    margin: 26px 0 0;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+/* ── Tävlingsupplägg ────────────────────────────────────────────────── */
+.format {
+    background: var(--green);
+    color: var(--cream);
+    margin-top: 84px;
+    scroll-margin-top: var(--header-h);
+}
+
+.format-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 84px var(--gutter);
+}
+
+.format h2 {
+    color: var(--cream);
+}
+
+.format-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 56px;
+    margin-top: 44px;
+}
+
+.format-text {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.format-text p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(244, 241, 232, 0.86);
+}
+
+.format-scoring .eyebrow {
+    display: block;
+    margin: 0 0 20px;
+    font-size: 11px;
+}
+
+.scoring-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--hair-dark);
+}
+
+.scoring-place {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cream);
+}
+
+.scoring-points {
+    font-family: var(--serif);
+    font-size: 32px;
+    line-height: 1;
+    color: var(--gold);
+}
+
+.scoring-note {
+    margin: 20px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(244, 241, 232, 0.62);
+}
+
+/* ── Klubbar ────────────────────────────────────────────────────────── */
+.club-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.club-card {
+    background: var(--cream);
+    border: 1px solid var(--hair-strong);
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 150px;
+}
+
+.club-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+}
+
+.club-card-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--green);
+}
+
+.club-loc {
+    margin-top: auto;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+.site-footer {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 72px var(--gutter) 64px;
+}
+
+.footer-inner {
+    border-top: 1px solid var(--hair-strong);
+    padding-top: 32px;
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.footer-lead {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--green);
+}
+
+.footer-sub {
+    margin: 8px 0 0;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.footer-meta {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ── Responsivt ─────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+
+    /* Hero: ingen plats för text bredvid foto – lodrätt scrim istället. */
+    .hero-scrim-x {
+        background: linear-gradient(180deg,
+                rgba(14, 47, 31, 0.55) 0%,
+                rgba(14, 47, 31, 0.75) 60%,
+                rgba(14, 47, 31, 0.92) 100%);
     }
 
-    .site-title {
-        font-size: 1rem;
+    .hero-inner {
+        padding: 64px var(--gutter) 40px;
     }
 
-    .logo {
-        height: 36px;
+    /* Spel/Snitt tas bort – Pos, klubb och poäng räcker på liten skärm. */
+    .col-played,
+    .col-avg {
+        display: none;
     }
 
-    .nav-links {
-        gap: 1rem;
+    .standings .cell-points {
+        font-size: 26px;
     }
 
-    .hero {
-        padding: 3rem 1rem;
+    /* Datum staplas ovanför klubbnamnet. */
+    .round-head {
+        grid-template-columns: minmax(0, 44px) minmax(0, 1fr) 28px;
+        gap: 14px;
     }
 
-    .hero h1 {
-        font-size: 2rem;
+    .round-date {
+        grid-column: 2;
+        grid-row: 1;
+        margin-bottom: 4px;
     }
 
-    .tagline {
-        font-size: 1rem;
+    .round-club {
+        grid-column: 2;
+        grid-row: 2;
     }
 
-    .results-table th,
-    .results-table td {
-        padding: 0.6rem 0.5rem;
-        font-size: 0.9rem;
+    .round-no {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: start;
+        font-size: 28px;
+    }
+
+    .round-status {
+        grid-column: 2;
+        grid-row: 3;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .caret {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .year-head {
+        grid-template-columns: minmax(0, 78px) minmax(0, 1fr) 28px;
+        gap: 14px;
+    }
+
+    .year-margin {
+        grid-column: 2;
+        grid-row: 2;
+        text-align: left;
+        margin-top: 6px;
+    }
+
+    .format,
+    .section {
+        --gutter: 20px;
+    }
+
+    .panel-grid,
+    .panel-narrow {
+        gap: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 }
